@@ -10,7 +10,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
   const menuRef = useRef<HTMLDivElement>(null)
 
   const [showSidebar, setShowSidebar] = useState(false)
-  const [collapseSidebar, setCollapseSidebar] = useState(false)
+  const [collapseSidebar, setCollapseSidebar] = useState(true)
 
   useEffect(() => {
     const handler = (e: MouseEvent | React.MouseEvent) => {

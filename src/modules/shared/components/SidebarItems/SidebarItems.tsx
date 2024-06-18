@@ -17,7 +17,9 @@ const SidebarItems: React.FC<ISidebarItemsProps> = ({ collapseSidebar }) => {
           <Link
             to={route?.link}
             key={index}
-            className={`item ${pathname === route?.link && 'active'}`}
+            className={`${collapseSidebar ? 'item collapsed-item' : 'item'} ${
+              pathname === route?.link && 'active'
+            }`}
           >
             <div
               className={`link-icon-stroke-color ${
@@ -26,7 +28,7 @@ const SidebarItems: React.FC<ISidebarItemsProps> = ({ collapseSidebar }) => {
             >
               {route?.icon}
             </div>
-            {!collapseSidebar ? t(`sidebar.${route?.label.toLowerCase()}`).toUpperCase() : null}
+            {true ? t(`sidebar.${route?.label.toLowerCase()}`) : null}
           </Link>
         )
       })}

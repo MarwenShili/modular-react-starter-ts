@@ -7,25 +7,23 @@
   max-height: 100%;
   overflow: hidden;
   transition: all 0.2s ease-out;
+  background: #fff;
 
   .sidebar-logo-container {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 25px;
-    min-height: 64px;
-    background: #0088f7;
-    border-radius: 10px;
-    color: #ffffff;
+    color: #000;
     user-select: none;
     font-size: 25px;
+    height: 64px;
+    padding: 25px 36px;
+    // border-bottom: 1px solid rgba(128, 128, 128, 0.12);
   }
 
   .sidebar-content {
     height: 100%;
-    background: #fafafa;
-    box-shadow: 0px 4px 16px 4px rgba(0, 0, 0, 0.05);
-    border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;

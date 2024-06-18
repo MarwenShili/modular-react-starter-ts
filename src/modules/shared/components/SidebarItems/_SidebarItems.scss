@@ -1,20 +1,18 @@
 .sidebar-items {
-  background-color: #fafafa;
-  border-radius: 10px;
-  padding: 22px;
+  padding: 15px;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: 12px;
+  gap: 8px;
 
   .item {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     gap: 12px;
-    height: 50px;
-    color: #0088f7;
+    // height: 45px;
+    color: #637381;
     padding: 12px 15px 8px 15px;
     border-radius: 8px;
     cursor: pointer;
@@ -22,44 +20,53 @@
     align-items: center;
     overflow: hidden;
 
+
+
     .icon_color {
-      color: #4f68c7;
-      padding-bottom: 3px;
+      color: #637381;
+      // padding-bottom: 3px;
     }
 
     &:hover {
       background-color: #f1f5f9;
-      color: #0088f7;
 
-      .icon_color {
-        color: white;
-      }
     }
   }
 
+  .collapsed-item {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 0px;
+    font-size: 10px;
+    padding: 8px 15px 8px 15px;
+  }
+
   .active {
-    background-color: #0088f7;
-    color: white;
+    background-color: #EEF6FE;
+    color: #0088f7;
+
+
 
     &:hover {
-      background-color: #0088f7;
-      color: white;
-
-      .icon_color {
-        color: white;
-      }
+      background-color: #EEF6FE;
     }
 
     .icon_color {
-      color: white;
+      color: #0088f7;
     }
   }
 
   .link-icon-stroke-color {
-    stroke: #0088f7;
+    stroke: #637381;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
   }
 
   .link-icon-stroke-color-active {
-    stroke: white;
+    stroke: #0088f7;
   }
 }

@@ -1,3 +1,39 @@
 .ant_select {
   width: 100% !important;
+
+  .ant-select {
+    width: 100% !important;
+  }
+}
+
+.select-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  & .error-message {
+    margin-left: 4px;
+    margin-top: 4px;
+    font-size: 12px;
+    font-weight: 400;
+    color: #f44336;
+  }
+
+  .ant-input-required {
+    color: #e04f44;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 11px;
+  }
+
+  .ant-input-error_txt {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 11px;
+    color: #e04f44;
+    margin-top: 6px;
+  }
 }

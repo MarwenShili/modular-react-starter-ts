@@ -1,27 +1,32 @@
-import { CloseCircleOutlined, EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
-import { Input } from 'antd';
-import { ReactNode, useState } from 'react';
-
-interface IFieldProps {
-  type: string;
-  name: string;
-  label: string;
-  placeholder: string;
-  required?: boolean;
-  prefix?: ReactNode;
-  suffix?: ReactNode;
-}
+import { CloseCircleOutlined, EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons'
+import { Input } from 'antd'
+import { ReactNode, useState } from 'react'
+import './AntInput.scss'
 
 interface IAntInputProps {
-  formik: any;
-  field: IFieldProps;
+  formik?: any
+  type?: string
+  name: string
+  label?: string
+  placeholder?: string
+  required?: boolean
+  prefix?: ReactNode
+  suffix?: ReactNode
+  onChange?: (e: any) => void
 }
 
 const AntInput = ({
   formik,
-  field: { type, name, label, placeholder, required, prefix, suffix },
+  type,
+  name,
+  label,
+  placeholder,
+  required,
+  prefix,
+  suffix,
+  onChange,
 }: IAntInputProps) => {
-  const [passwordVisible, setPasswordVisible] = useState(false);
+  const [passwordVisible, setPasswordVisible] = useState(false)
 
   return (
     <div className="ant-input-container">
@@ -30,15 +35,15 @@ const AntInput = ({
         {required && <span className="ant-input-required">*</span>}
       </label>
       <Input
-        size="middle"
+        size="large"
         id={name}
         name={name}
         type={type !== 'password' ? type : passwordVisible ? 'text' : 'password'}
         placeholder={placeholder}
-        value={formik.values[name]}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        status={formik.errors[name] && formik.touched[name] ? 'error' : undefined}
+        value={formik?.values?.[name]}
+        onChange={onChange || formik?.handleChange}
+        onBlur={formik?.handleBlur}
+        status={formik?.errors?.[name] && formik?.touched?.[name] ? 'error' : undefined}
         prefix={prefix}
         className="ant-input-input"
         suffix={
@@ -52,22 +57,22 @@ const AntInput = ({
               ))
         }
       />
-      {formik.touched[name] && formik.errors[name] && (
+      {formik?.touched?.[name] && formik?.errors?.[name] && (
         <p className="ant-input-error_txt">
           <CloseCircleOutlined />
-          {formik.errors[name]}
+          {formik.errors?.[name]}
         </p>
       )}
     </div>
-  );
-};
+  )
+}
 
-type InputDefaultProps = Pick<IAntInputProps, 'formik' | 'field'>;
+type InputDefaultProps = Pick<IAntInputProps, 'formik' | any>
 
 Input.defaultProps = {
   field: {
     type: 'text',
   },
-} as InputDefaultProps;
+} as InputDefaultProps
 
-export default AntInput;
+export default AntInput

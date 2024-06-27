@@ -19,4 +19,9 @@ export const SIDEBARITEMS = [
     label: 'Profile',
     icon: <ProfileIcon />,
   },
+  {
+    link: '/trying',
+    label: 'Trying',
+    icon: <SettingsIcon />,
+  },
 ]

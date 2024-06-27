@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import Sidebar from '../../components/Sidebar/Sidebar'
 import Navbar from '../../components/Navbar/Navbar'
+import { useTranslation } from 'react-i18next'
 
 interface MainLayoutProps {
   children: React.ReactNode
@@ -8,6 +9,7 @@ interface MainLayoutProps {
 
 const MainLayout = ({ children }: MainLayoutProps) => {
   const menuRef = useRef<HTMLDivElement>(null)
+  const { i18n } = useTranslation()
 
   const [showSidebar, setShowSidebar] = useState(false)
   const [collapseSidebar, setCollapseSidebar] = useState(true)
@@ -29,7 +31,9 @@ const MainLayout = ({ children }: MainLayoutProps) => {
   return (
     <div className="main-layout">
       <div
-        className={`main-layout-sidebar ${showSidebar ? 'main-layout-toggle-mobile-sidebar' : ''}`}
+        className={` ${
+          i18n.language.toString() === 'en' ? 'main-layout-sidebar' : 'main-layout-sidebar-ar'
+        } ${showSidebar ? 'main-layout-toggle-mobile-sidebar' : ''}`}
       >
         <Sidebar collapseSidebar={collapseSidebar} />
       </div>

@@ -37,12 +37,12 @@ const Register = () => {
         .email('Invalid email address')
         .matches(
           /^([a-zA-Z0-9._%+-]+)@((?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,})$/,
-          'Invalid email address'
+          'Invalid email address',
         )
         .test(
           'no-special-chars',
           'Email contains disallowed characters',
-          (value: string | undefined) => !value || /^[^<>()\\/[\]{}\s]+@[^\s]+$/.test(value)
+          (value: string | undefined) => !value || /^[^<>()\\/[\]{}\s]+@[^\s]+$/.test(value),
         )
         .required('Email is required'),
       password: Yup.string().required('Password is required').min(6, 'Password is too short!'),

@@ -10,7 +10,10 @@ const { Panel } = Collapse
 const Trying = () => {
   return (
     <div className="trying-page">
-      <Title level={3}>Trying page</Title>
+      <Title level={3}>
+        This module is for testing components. If you are working on the production project, please
+        hide or remove it.
+      </Title>
       <div className="trying-items">
         <Collapse
           expandIcon={({ isActive }) => <CaretRightOutlined rotate={isActive ? 90 : 0} />}

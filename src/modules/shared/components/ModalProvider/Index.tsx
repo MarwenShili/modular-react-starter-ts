@@ -2,6 +2,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import { RootState } from '../../store'
 import ModalExample from '../ModalExample/ModalExample'
 import { closeModal } from '../../store/slices/modal/modalSlice'
+import DrawerExample from '../DrawerExample/DrawerExample'
+import ThemeSettings from '../ThemeSettings/ThemeSettings'
 
 const ModalsProvider = () => {
   const { modals } = useSelector((state: RootState) => state.modal)
@@ -22,6 +24,18 @@ const ModalsProvider = () => {
         id="modal-example"
         open={modalState('modal-example', 'open')}
         data={modalState('modal-example', 'data')}
+        handleClose={handleClose}
+      />
+      <DrawerExample
+        id="drawer-example"
+        open={modalState('drawer-example', 'open')}
+        data={modalState('drawer-example', 'data')}
+        handleClose={handleClose}
+      />
+      <ThemeSettings
+        id="theme-settings"
+        open={modalState('theme-settings', 'open')}
+        data={modalState('theme-settings', 'data')}
         handleClose={handleClose}
       />
     </>

@@ -14,7 +14,7 @@ const App = () => {
   return (
     <div id={theme}>
       <Helmet>
-        <title>Welcome - My APP</title>
+        <title>Our Scalable Starter</title>
       </Helmet>
       {renderRoutes(routes)}
     </div>

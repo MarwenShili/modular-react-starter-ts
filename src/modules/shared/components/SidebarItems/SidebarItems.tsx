@@ -28,7 +28,7 @@ const SidebarItems: React.FC<ISidebarItemsProps> = ({ collapseSidebar }) => {
             >
               {route?.icon}
             </div>
-            {true ? t(`sidebar.${route?.label.toLowerCase()}`) : null}
+            {t(`sidebar.${route?.label.toLowerCase()}`) || null}
           </Link>
         )
       })}

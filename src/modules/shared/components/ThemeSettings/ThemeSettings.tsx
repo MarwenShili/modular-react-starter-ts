@@ -8,6 +8,8 @@ import {
 } from '@ant-design/icons'
 import IcMoon from '../../assets/icons/settings/ic-moon.svg'
 import IcContrast from '../../assets/icons/settings/ic-autofit-width.svg'
+import IcIntegrate from '../../assets/icons/settings/ic-sidebar-outline.svg'
+import IcApparent from '../../assets/icons/settings/ic-sidebar-filled.svg'
 
 type ThemeSettingsProps = {
   id: string
@@ -57,6 +59,7 @@ const ThemeSettings: React.FC<ThemeSettingsProps> = ({ id, open, handleClose }) 
         title={null}
         open={open}
         onClose={handleCancel}
+        width={330}
       >
         <div className="setting-header">
           <span className="title">Settings</span>
@@ -74,7 +77,7 @@ const ThemeSettings: React.FC<ThemeSettingsProps> = ({ id, open, handleClose }) 
             <Button type="text" icon={<CloseOutlined />} onClick={handleCancel} />
           </div>
         </div>
-
+        {/* Mode and spacing */}
         <div className="themes">
           <div className="theme">
             <div className="theme-header">
@@ -95,12 +98,23 @@ const ThemeSettings: React.FC<ThemeSettingsProps> = ({ id, open, handleClose }) 
             <p className="theme-name">Compact</p>
           </div>
         </div>
-
+        {/* Nav Size and bg */}
         <div className="nav-settings">
           <p className="title">Nav</p>
           <div className="content">
             <p className="layout">Layout</p>
             <div className="layout-items">
+              <div className="layout-item-collapsed">
+                <div className="left">
+                  <span className="box-color"></span>
+                  <div className="line l-1"></div>
+                  <div className="line l-2"></div>
+                </div>
+                <div className="right">
+                  <div className="colored-content"></div>
+                </div>
+              </div>
+              {/* //// */}
               <div className="layout-item-collapsed">
                 <div className="left">
                   <span className="box-color"></span>
@@ -112,7 +126,27 @@ const ThemeSettings: React.FC<ThemeSettingsProps> = ({ id, open, handleClose }) 
                 </div>
               </div>
             </div>
+            <p className="layout">Color</p>
+            <div className="color-settings">
+              <div className="color-item">
+                <img src={IcIntegrate} alt="integrate" />
+                Integrate
+              </div>
+              <div className="color-item">
+                <img src={IcApparent} alt="apparent" />
+                Apparent
+              </div>
+            </div>
           </div>
+        </div>
+        {/* Presets */}
+        <div className="nav-settings presets">
+          <p className="title">Presets</p>
+        </div>
+
+        {/* Font */}
+        <div className="nav-settings font">
+          <p className="title">Font</p>
         </div>
       </Drawer>
     </>

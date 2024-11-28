@@ -1,0 +1,43 @@
+    .themes {
+        margin-bottom: 45px;
+        display: flex;
+        gap: 16px;
+
+        .theme {
+            width: 50%;
+            display: inline-flex;
+            background-color: transparent;
+            vertical-align: middle;
+            color: inherit;
+            padding: 15px 10px;
+            border-radius: 16px;
+            cursor: pointer;
+            flex-direction: column;
+            align-items: flex-start;
+            border: solid 1px #DDE1E4;
+            gap: 16px;
+
+            &:hover {
+                background-color: #F5F7F9;
+            }
+
+            .theme-header {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                justify-content: space-between;
+                width: 100%;
+
+                .switch {
+                    width: 10px;
+                }
+
+            }
+
+            .theme-name {
+                line-height: 13px;
+                font-weight: 600;
+                font-size: 0.7125rem;
+            }
+        }
+    }

@@ -3,8 +3,7 @@ import { RootState } from '../../store'
 import ModalExample from '../ModalExample/ModalExample'
 import { closeModal } from '../../store/slices/modal/modalSlice'
 import DrawerExample from '../DrawerExample/DrawerExample'
-import ThemeSettings from '../ThemeSettings/ThemeSettings'
-
+import ThemeSettings from '../../features/ThemeSettings/ThemeSettings'
 const ModalsProvider = () => {
   const { modals } = useSelector((state: RootState) => state.modal)
   const dispatch = useDispatch()

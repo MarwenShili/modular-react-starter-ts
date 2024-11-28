@@ -1,4 +1,5 @@
 import { HTMLAttributes, ReactNode } from 'react'
+import { useAppSelector } from '@src/modules/shared/store'
 
 interface IButtonProps extends HTMLAttributes<HTMLButtonElement> {
   icon?: string
@@ -25,8 +26,11 @@ const Button: React.FC<IButtonProps> = ({
   loading,
   ...props
 }) => {
+  const { presetsConfig } = useAppSelector((state) => state.theme)
+
   return (
     <button
+      style={{ backgroundColor: presetsConfig.selectedPreset }}
       className={[
         'btn',
         `btn-${size}`,

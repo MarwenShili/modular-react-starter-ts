@@ -6,9 +6,12 @@ import {
   FullscreenExitOutlined,
 } from '@ant-design/icons'
 import { useEffect, useState } from 'react'
+import { resetTheme } from '@src/modules/shared/store/slices/theme/themeSlice'
+import { useAppDispatch } from '@src/modules/shared/store'
 
 function SettingsHeader({ handleCancel }: { handleCancel: () => void }) {
   const [isFullscreen, setIsFullscreen] = useState(false)
+  const dispatch = useAppDispatch()
 
   const toggleFullscreen = () => {
     if (!document.fullscreenElement) {
@@ -36,6 +39,9 @@ function SettingsHeader({ handleCancel }: { handleCancel: () => void }) {
     }
   }, [])
 
+  const handleReset = () => {
+    dispatch(resetTheme())
+  }
   return (
     <div className="setting-header">
       <span className="title">Settings</span>
@@ -48,7 +54,7 @@ function SettingsHeader({ handleCancel }: { handleCancel: () => void }) {
           />
         </Popover>
         <Popover content="Reset">
-          <Button type="text" icon={<UndoOutlined />} />
+          <Button type="text" icon={<UndoOutlined />} onClick={handleReset} />
         </Popover>
         <Button type="text" icon={<CloseOutlined />} onClick={handleCancel} />
       </div>

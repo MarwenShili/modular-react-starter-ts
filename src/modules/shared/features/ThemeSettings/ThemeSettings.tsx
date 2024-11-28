@@ -4,6 +4,7 @@ import DarkLight from './components/DarkLight/DarkLight'
 import NavSize from './components/NavSize/NavSize'
 import Presets from './components/Prestes/Presets'
 import SettingsHeader from './components/SettingHeader/SettingsHeader'
+import { useAppSelector } from '../../store'
 
 type ThemeSettingsProps = {
   id: string
@@ -16,11 +17,12 @@ const ThemeSettings: React.FC<ThemeSettingsProps> = ({ id, open, handleClose }) 
   const handleCancel = () => {
     handleClose(id)
   }
+  const { mode } = useAppSelector((state) => state.theme)
 
   return (
     <>
       <Drawer
-        className="setting-drawer"
+        className={`setting-drawer ${mode === 'dark' ? 'dark-drawer' : ''}`}
         mask={false}
         title={null}
         open={open}

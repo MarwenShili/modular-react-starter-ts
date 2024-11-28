@@ -1,10 +1,12 @@
-import IcIntegrate from '../../../../assets/icons/settings/ic-sidebar-outline.svg'
-import IcApparent from '../../../../assets/icons/settings/ic-sidebar-filled.svg'
 import { RootState, useAppSelector, useAppDispatch } from '@src/modules/shared/store'
-import { setCollapseSidebar } from '@src/modules/shared/store/slices/theme/themeSlice'
+import { setCollapseSidebar, setNavColor } from '@src/modules/shared/store/slices/theme/themeSlice'
+import { IcSidebarFilled } from '../../assets/icons/IcSidebarFilled'
+import { IcSidebarOutline } from '../../assets/icons/IcSidebarOutline'
 
 function NavSize() {
-  const { collapseSidebar, presetsConfig } = useAppSelector((state: RootState) => state.theme)
+  const { collapseSidebar, presetsConfig, navColor } = useAppSelector(
+    (state: RootState) => state.theme,
+  )
   const dispatch = useAppDispatch()
 
   // Helper function to convert hex to rgba with opacity
@@ -92,12 +94,24 @@ function NavSize() {
         </div>
         <p className="layout">Color</p>
         <div className="color-settings">
-          <div className="color-item">
-            <img src={IcIntegrate} alt="integrate" />
+          <div
+            className={`color-item `}
+            onClick={() => dispatch(setNavColor('#ffffff'))}
+            style={{ color: navColor === '#ffffff' ? presetsConfig.selectedPreset : '#919EAB' }}
+          >
+            <IcSidebarOutline
+              color={navColor === '#ffffff' ? presetsConfig.selectedPreset : '#919EAB'}
+            />
             Integrate
           </div>
-          <div className="color-item">
-            <img src={IcApparent} alt="apparent" />
+          <div
+            className={`color-item`}
+            onClick={() => dispatch(setNavColor('#1e232b'))}
+            style={{ color: navColor === '#1e232b' ? presetsConfig.selectedPreset : '#919EAB' }}
+          >
+            <IcSidebarFilled
+              color={navColor === '#1e232b' ? presetsConfig.selectedPreset : '#919EAB'}
+            />
             Apparent
           </div>
         </div>

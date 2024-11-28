@@ -1,25 +1,37 @@
 import { Switch } from 'antd'
-import IcMoon from '../../../../assets/icons/settings/ic-moon.svg'
-import IcContrast from '../../../../assets/icons/settings/ic-autofit-width.svg'
+import { useAppDispatch, useAppSelector } from '@src/modules/shared/store'
+import { setAutoWidth, toggleTheme } from '@src/modules/shared/store/slices/theme/themeSlice'
+import { MoonIcon } from '../../assets/icons/MoonIcon'
+import { AutoWidthIcon } from '../../assets/icons/AutoWidthIcon'
 
 function DarkLight() {
+  const { mode, presetsConfig, autoWidth } = useAppSelector((state) => state.theme)
+  const dispatch = useAppDispatch()
   return (
     <div className="themes">
-      <div className="theme">
+      <div
+        className="theme"
+        onClick={() => dispatch(toggleTheme())}
+        style={{ backgroundColor: mode === 'dark' ? '#F5F7F9' : '#ffffff' }}
+      >
         <div className="theme-header">
           <div className="theme-icon">
-            <img src={IcMoon} alt="Light" />
+            <MoonIcon color={mode === 'dark' ? '#ffffff' : presetsConfig.selectedPreset} />
           </div>
-          <Switch size="small" className="switch" />
+          <Switch checked={mode === 'dark'} size="small" className="switch" />
         </div>
         <p className="theme-name">Dark Mode</p>
       </div>
-      <div className="theme">
+      <div
+        className="theme"
+        onClick={() => dispatch(setAutoWidth(!autoWidth))}
+        style={{ backgroundColor: mode === 'dark' ? '#F5F7F9' : '#ffffff' }}
+      >
         <div className="theme-header">
           <div className="theme-icon">
-            <img src={IcContrast} alt="contrast" />
+            <AutoWidthIcon color={mode === 'dark' ? '#ffffff' : presetsConfig.selectedPreset} />
           </div>
-          <Switch size="small" className="switch" />
+          <Switch checked={autoWidth} size="small" className="switch" />
         </div>
         <p className="theme-name">Compact</p>
       </div>

@@ -117,7 +117,7 @@
                 border-radius: 12px;
                 border: solid 1px #DDE1E4;
                 padding: 10px;
-                background: #fff;
+                background: transparent;
                 display: flex;
                 align-items: center;
                 gap: 12px;
@@ -128,7 +128,22 @@
                 &:hover {
                     background-color: #F5F7F9;
                 }
+
             }
+        }
+    }
+}
+
+
+.dark-drawer {
+    .color-item {
+        &:hover {
+            background-color: #1e232b !important;
+        }
+
+        &.active {
+            background-color: #1e232b !important;
+            border-color: #4B5259;
         }
     }
 }

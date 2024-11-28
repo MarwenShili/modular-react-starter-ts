@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import Sidebar from '../../components/Sidebar/Sidebar'
 import Navbar from '../../components/Navbar/Navbar'
 import { useTranslation } from 'react-i18next'
+import { useAppSelector } from '../../store'
 
 interface MainLayoutProps {
   children: React.ReactNode
@@ -10,6 +11,7 @@ interface MainLayoutProps {
 const MainLayout = ({ children }: MainLayoutProps) => {
   const menuRef = useRef<HTMLDivElement>(null)
   const { i18n } = useTranslation()
+  const { autoWidth } = useAppSelector((state) => state.theme)
 
   const [showSidebar, setShowSidebar] = useState(false)
   useEffect(() => {
@@ -42,7 +44,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
         <div className="main-layout-navbar">
           <Navbar setShowSidebar={setShowSidebar} />
         </div>
-        <div className="main-layout-outlet">{children}</div>
+        <div className={`main-layout-outlet ${autoWidth ? 'auto-width' : ''}`}>{children}</div>
       </div>
     </div>
   )

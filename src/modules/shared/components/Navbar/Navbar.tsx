@@ -13,6 +13,8 @@ import { logout } from '@src/modules/auth/data/authThunk'
 import { useTranslation } from 'react-i18next'
 import { useState } from 'react'
 import { setCollapseSidebar } from '../../store/slices/theme/themeSlice'
+import settingsIcon from '../../assets/icons/navbar/settings.svg'
+import { openModal } from '../../store/slices/modal/modalSlice'
 
 interface INavbarProps {
   setShowSidebar: React.Dispatch<React.SetStateAction<boolean>>
@@ -99,6 +101,10 @@ const Navbar: React.FC<INavbarProps> = ({ setShowSidebar }) => {
     },
   ]
 
+  const handleClickSettings = () => {
+    dispatch(dispatch(openModal({ id: 'theme-settings' })))
+  }
+
   return (
     <div className="navbar">
       <div className="navbar-left">
@@ -138,6 +144,10 @@ const Navbar: React.FC<INavbarProps> = ({ setShowSidebar }) => {
             </Button>
           </Dropdown>
 
+          <div className="setting-icon" onClick={handleClickSettings}>
+            <img src={settingsIcon} alt="settings" />
+          </div>
+
           <Dropdown
             menu={{ items: accountInfoItems }}
             trigger={['click']}
@@ -146,7 +156,7 @@ const Navbar: React.FC<INavbarProps> = ({ setShowSidebar }) => {
             className="navbar-dropdown-cursor"
           >
             <Space>
-              <Avatar size={32} className="navbar-avatar">
+              <Avatar size={28} className="navbar-avatar">
                 A
               </Avatar>
             </Space>

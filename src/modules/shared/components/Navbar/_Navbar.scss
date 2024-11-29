@@ -53,6 +53,25 @@
       }
     }
   }
+
+  .setting-icon {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px;
+
+    &:hover {
+      background: #e0e0e0;
+      border-radius: 50%;
+    }
+
+    img {
+      width: 26px;
+      height: 26px;
+      animation: rotate 4s linear infinite;
+    }
+  }
 }
 
 .navbar-flag-container {
@@ -68,4 +87,22 @@
 
 .navbar-dropdown-cursor {
   cursor: pointer;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 50%;
+  padding: 1px;
+  border: 1px solid #e0e0e0;
+
+
+}
+
+
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }

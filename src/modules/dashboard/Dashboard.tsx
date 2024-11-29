@@ -23,12 +23,6 @@ const Dashboard = () => {
       <Button onClick={() => dispatch(openModal({ id: 'modal-example' }))}>
         open Modal example
       </Button>
-      <Button onClick={() => dispatch(openModal({ id: 'drawer-example' }))}>
-        open Drawer example
-      </Button>
-      <Button onClick={() => dispatch(openModal({ id: 'theme-settings' }))}>
-        open Theme Settings
-      </Button>
     </div>
   )
 }

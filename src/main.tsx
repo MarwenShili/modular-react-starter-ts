@@ -10,11 +10,11 @@ import Providers from './providers'
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <HelmetProvider>
     <React.StrictMode>
-      <Providers>
-        <BrowserRouter>
+      <BrowserRouter>
+        <Providers>
           <App />
-        </BrowserRouter>
-      </Providers>
+        </Providers>
+      </BrowserRouter>
     </React.StrictMode>
   </HelmetProvider>,
 )

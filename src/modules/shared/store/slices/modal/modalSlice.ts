@@ -25,6 +25,10 @@ const initialState: ModalsState = {
       id: 'theme-settings',
       open: false,
     },
+    {
+      id: 'user-profile',
+      open: false,
+    },
   ],
 }
 

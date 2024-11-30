@@ -5,6 +5,7 @@ import { closeModal } from '../../store/slices/modal/modalSlice'
 import DrawerExample from '../DrawerExample/DrawerExample'
 import ThemeSettings from '../../features/ThemeSettings/ThemeSettings'
 import UserProfile from '../UserProfile/UserProfile'
+import NotificationsDrawer from '@src/modules/notification/Notification'
 const ModalsProvider = () => {
   const { modals } = useSelector((state: RootState) => state.modal)
   const dispatch = useDispatch()
@@ -42,6 +43,12 @@ const ModalsProvider = () => {
         id="user-profile"
         open={modalState('user-profile', 'open')}
         data={modalState('theme-settings', 'data')}
+        handleClose={handleClose}
+      />
+      <NotificationsDrawer
+        id="notification-drawer"
+        open={modalState('notification-drawer', 'open')}
+        data={modalState('notification-drawer', 'data')}
         handleClose={handleClose}
       />
     </>

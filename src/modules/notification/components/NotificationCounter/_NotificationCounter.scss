@@ -1,0 +1,86 @@
+.notification-module {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    // backdrop-filter: blur(20px);
+    .notif-cover {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        // border: 1px solid #b4bcc2;
+        transform: scale(1.05) translateZ(0px);
+
+        // background-color: rgba(145, 158, 171, 0.16);
+        &:hover {
+            display: inline-flex;
+            -webkit-box-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            justify-content: center;
+            position: relative;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+            outline: 0px;
+            border: 0px;
+            margin: 0px;
+            cursor: pointer;
+            user-select: none;
+            vertical-align: middle;
+            appearance: none;
+            text-decoration: none;
+            text-align: center;
+            flex: 0 0 auto;
+            font-size: 1.5rem;
+            padding: 8px;
+            border-radius: 50%;
+            overflow: visible;
+            transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+            color: inherit;
+            background-color: rgba(145, 158, 171, 0.16);
+        }
+
+        .count_cover {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: fit-content;
+        }
+    }
+
+    .notif-icon {
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+    }
+
+    .notif-count {
+        cursor: pointer;
+        display: flex;
+        flex-flow: wrap;
+        place-content: center;
+        align-items: center;
+        position: absolute;
+        box-sizing: border-box;
+        font-family: "Public Sans", sans-serif;
+        font-weight: 500;
+        font-size: 0.47rem;
+        width: 15px;
+        line-height: 1;
+        padding: 0px 6px;
+        height: 15px;
+        border-radius: 50%;
+        z-index: 1;
+        transition: transform 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        background-color: rgb(255, 86, 48);
+        color: rgb(255, 255, 255);
+        top: 0px;
+        right: 2px;
+        transform: scale(1) translate(50%, -50%);
+        transform-origin: 100% 0%;
+    }
+}

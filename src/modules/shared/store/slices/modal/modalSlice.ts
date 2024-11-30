@@ -29,6 +29,10 @@ const initialState: ModalsState = {
       id: 'user-profile',
       open: false,
     },
+    {
+      id: 'notification-drawer',
+      open: false,
+    },
   ],
 }
 

@@ -1,0 +1,82 @@
+.drawer-notifications {
+    overflow: hidden;
+
+    .ant-drawer-body {
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .n_header {
+        display: flex;
+        align-items: center;
+        padding: 16px 12px 16px 20px;
+        min-height: 68px;
+        width: 100%;
+        justify-content: space-between;
+        border-bottom: 1px solid rgba(145, 158, 171, 0.2);
+
+        .n_title {
+            font-size: 1.125rem;
+        }
+
+        .mark_all_read {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+
+            img {
+                width: 24px;
+                height: 24px;
+            }
+        }
+    }
+
+    .content_drawer {
+        // padding: 16px 12px 16px 20px;
+        // padding: 10px 0;
+        overflow-y: scroll;
+        height: calc(100% - 68px - 40px);
+    }
+
+    .read_all {
+        display: inline-flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        position: relative;
+        box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+        background-color: transparent;
+        outline: 0px;
+        border: 0px currentcolor;
+        margin: 0px;
+        cursor: pointer;
+        user-select: none;
+        vertical-align: middle;
+        appearance: none;
+        text-decoration: none;
+        font-weight: 700;
+        line-height: 1.71429;
+        text-transform: unset;
+        font-family: "Public Sans", sans-serif;
+        min-width: 64px;
+        padding: 8px 10px;
+        border-radius: 8px;
+        transition:
+            background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+            box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+            border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+            color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        color: inherit;
+        width: 100%;
+        box-shadow: none;
+        height: 48px;
+        font-size: 15px;
+    }
+
+    .tooltip-notif {
+        background-color: red;
+    }
+}

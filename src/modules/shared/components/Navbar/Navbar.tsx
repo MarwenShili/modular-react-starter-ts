@@ -12,6 +12,7 @@ import { setCollapseSidebar } from '../../store/slices/theme/themeSlice'
 import settingsIcon from '../../assets/icons/navbar/settings.svg'
 import { openModal } from '../../store/slices/modal/modalSlice'
 import { UserOutlined } from '@ant-design/icons'
+import NotificationCounter from '@src/modules/notification/components/NotificationCounter/NotificationCounter'
 interface INavbarProps {
   setShowSidebar: React.Dispatch<React.SetStateAction<boolean>>
 }
@@ -105,6 +106,13 @@ const Navbar: React.FC<INavbarProps> = ({ setShowSidebar }) => {
               </div>
             </Button>
           </Dropdown>
+
+          <div
+            className="notification-counter"
+            onClick={() => dispatch(openModal({ id: 'notification-drawer' }))}
+          >
+            <NotificationCounter />
+          </div>
 
           <div className="setting-icon" onClick={handleClickSettings}>
             <img src={settingsIcon} alt="settings" />

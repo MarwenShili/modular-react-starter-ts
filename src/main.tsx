@@ -6,7 +6,7 @@ import React from 'react'
 import './app/index.scss'
 import './i18n'
 import Providers from './providers'
-
+import * as serviceWorkerRegistration from './serviceWorkerRegistration'
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <HelmetProvider>
     <React.StrictMode>
@@ -18,3 +18,5 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     </React.StrictMode>
   </HelmetProvider>,
 )
+
+serviceWorkerRegistration.register()

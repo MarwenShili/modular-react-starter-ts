@@ -1,25 +1,27 @@
 import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { VitePWA } from 'vite-plugin-pwa'
+import tsconfigPaths from 'vite-tsconfig-paths'
 import svgr from 'vite-plugin-svgr'
-import path from 'path'
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), svgr()],
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, '.'),
-      '@src': path.resolve(__dirname, './src'),
-    },
-  },
-  server: {
-    port: 3000,
-
-    // to get images from the server
-    // proxy: {
-    //   '^/users': {
-    //     target: 'http://localhost:8000/',
-    //   },
-    // },
-  },
+  plugins: [
+    tsconfigPaths(),
+    svgr(),
+    VitePWA({
+      registerType: 'autoUpdate',
+      includeAssets: ['vite.svg'],
+      manifest: {
+        name: 'Shili Starter',
+        short_name: 'Starter',
+        icons: [
+          {
+            src: 'vite.svg',
+            sizes: 'any',
+            type: 'image/svg+xml',
+            purpose: 'any',
+          },
+        ],
+      },
+    }),
+  ],
 })

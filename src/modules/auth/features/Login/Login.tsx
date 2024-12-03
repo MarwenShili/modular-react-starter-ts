@@ -8,7 +8,7 @@ import { getChangedValues } from '@src/modules/shared/utils/getChangedValuesForm
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { PATH } from '../../routes/paths'
-import bg from '../../assets/images/bg.svg'
+import bg from '../../assets/images/auth-bg.svg'
 
 const initialValues = {
   username: '',
@@ -31,7 +31,9 @@ const Login = () => {
       const changedValues = getChangedValues(values, initialValues)
       dispatch(login(changedValues))
         .unwrap()
-        .then(() => {})
+        .then(() => {
+          console.log('success')
+        })
         .catch((err) => {
           alert(err?.message || 'something-went-wrong')
         })
@@ -46,34 +48,35 @@ const Login = () => {
       <div className="container-image">
         <img src={bg} alt="img" />
       </div>
-      <form className="login-card-container" onSubmit={formik.handleSubmit}>
-        <h1 className="title">Sign in</h1>
+      <div className="form-container">
+        <form className="login-card-container" onSubmit={formik.handleSubmit}>
+          <h1 className="title">Sign in</h1>
+          <Input
+            name="username"
+            formik={formik}
+            variant="secondary"
+            placeholder="Enter your username"
+            label="Username"
+            required={true}
+          />
 
-        <Input
-          name="username"
-          formik={formik}
-          variant="secondary"
-          placeholder="Enter your username"
-          label="Username"
-          required={true}
-        />
+          <Input
+            name="password"
+            formik={formik}
+            variant="secondary"
+            placeholder="Enter your password"
+            label="Password"
+            type="password"
+            required={true}
+          />
 
-        <Input
-          name="password"
-          formik={formik}
-          variant="secondary"
-          placeholder="Enter your password"
-          label="Password"
-          type="password"
-          required={true}
-        />
+          <Button className="btn btn-login" label={'Login'} type={'submit'} loading={submitting} />
 
-        <Button className="btn btn-login" label={'Login'} type={'submit'} loading={submitting} />
-
-        <Link to={PATH.REGISTER} className="link">
-          Create Account?
-        </Link>
-      </form>
+          <Link to={PATH.REGISTER} className="link">
+            Create Account?
+          </Link>
+        </form>
+      </div>
     </div>
   )
 }

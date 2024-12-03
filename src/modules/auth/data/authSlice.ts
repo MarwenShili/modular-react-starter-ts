@@ -6,7 +6,7 @@ import { IAuthState } from './authTypes'
 
 const initialState: IAuthState = {
   status: 'idle',
-  isAuthenticated: true,
+  isAuthenticated: false,
   isInitialised: true,
   user: null,
   error: null,

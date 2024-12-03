@@ -8,6 +8,7 @@ import { getChangedValues } from '@src/modules/shared/utils/getChangedValuesForm
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { PATH } from '../../routes/paths'
+import bg from '../../assets/images/auth-bg.svg'
 
 const initialValues = {
   firstName: '',
@@ -70,6 +71,9 @@ const Register = () => {
 
   return (
     <div className="register-module">
+      <div className="container-image">
+        <img src={bg} alt="img" />
+      </div>
       <form className="register-card-container" onSubmit={formik.handleSubmit}>
         <h1 className="title">Register</h1>
 

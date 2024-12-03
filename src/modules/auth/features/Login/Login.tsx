@@ -46,7 +46,7 @@ const Login = () => {
   return (
     <div className="login-module">
       <div className="container-image">
-        <img src={bg} alt="img" />
+        <img src={bg} className="bg-image" alt="img" />
       </div>
       <div className="form-container">
         <form className="login-card-container" onSubmit={formik.handleSubmit}>

@@ -17,18 +17,16 @@
     width: calc(100% - 24px);
     height: 400px;
     position: absolute;
-
     top: 24px;
     // height: 100%;
     border-radius: 20px;
     background: linear-gradient(310deg, rgb(33, 82, 255), rgb(33, 212, 253));
 
-    img {
+    .bg-image {
       width: 100%;
       height: 100%;
       object-fit: cover;
       border-radius: 20px;
-
     }
 
     @media only screen and (max-width: 675px) {

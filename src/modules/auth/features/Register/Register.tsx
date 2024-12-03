@@ -13,13 +13,9 @@ import bg from '../../assets/images/auth-bg.svg'
 const initialValues = {
   firstName: '',
   lastName: '',
-  username: '',
   email: '',
   password: '',
   verify_password: '',
-  phone: null,
-  age: null,
-  birthDate: null,
 }
 
 const Register = () => {
@@ -33,7 +29,6 @@ const Register = () => {
     validationSchema: Yup.object().shape({
       firstName: Yup.string().required('FirstName is required'),
       lastName: Yup.string().required('LastName is required'),
-      username: Yup.string().required('Username is required'),
       email: Yup.string()
         .email('Invalid email address')
         .matches(
@@ -92,15 +87,6 @@ const Register = () => {
           variant="secondary"
           placeholder="Enter your lastname"
           label="Lastname"
-          required={true}
-        />
-
-        <Input
-          name="username"
-          formik={formik}
-          variant="secondary"
-          placeholder="Enter your username"
-          label="Username"
           required={true}
         />
 

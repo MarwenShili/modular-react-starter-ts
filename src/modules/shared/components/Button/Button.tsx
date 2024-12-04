@@ -12,6 +12,7 @@ interface IButtonProps extends HTMLAttributes<HTMLButtonElement> {
   loading?: boolean
   type?: 'button' | 'submit' | 'reset'
   children?: ReactNode
+  style?: React.CSSProperties
 }
 
 const Button: React.FC<IButtonProps> = ({
@@ -24,13 +25,14 @@ const Button: React.FC<IButtonProps> = ({
   disabled,
   children,
   loading,
+  style,
   ...props
 }) => {
   const { presetsConfig } = useAppSelector((state) => state.theme)
 
   return (
     <button
-      style={{ backgroundColor: presetsConfig.selectedPreset }}
+      style={{ backgroundColor: presetsConfig.selectedPreset, ...style }}
       className={[
         'btn',
         `btn-${size}`,

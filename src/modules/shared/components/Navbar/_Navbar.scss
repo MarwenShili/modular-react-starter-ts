@@ -108,3 +108,35 @@
     transform: rotate(360deg);
   }
 }
+
+#dark {
+  .navbar {
+    background: transparent;
+
+    .navbar-left {
+      .navbar-left-title {
+        color: #ffffff;
+      }
+
+      .navbar-left-menu-icon,
+      .navbar-left-menu-icon-collapse {
+        filter: brightness(0) invert(1) !important;
+      }
+    }
+
+    .setting-icon {
+      &:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      img {
+        filter: brightness(0) invert(1);
+        animation: rotate 4s linear infinite;
+      }
+    }
+  }
+
+  .navbar-profile-cursor {
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+}

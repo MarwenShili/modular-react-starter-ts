@@ -8,8 +8,7 @@ import { getChangedValues } from '@src/modules/shared/utils/getChangedValuesForm
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { PATH } from '../../routes/paths'
-import bg from '../../assets/images/auth-bg.svg'
-import Logo from '../../assets/icons/rocket-white.webp'
+import NavPage from '../../components/NavPage/NavPage'
 
 const initialValues = {
   firstName: '',
@@ -67,9 +66,7 @@ const Register = () => {
 
   return (
     <div className="register-module">
-      <div className="container-image">
-        <img src={bg} className="bg-image" alt="img" />
-      </div>
+      <NavPage />
       <form className="register-card-container" onSubmit={formik.handleSubmit}>
         <h1 className="title">Register</h1>
         <Input
@@ -120,7 +117,7 @@ const Register = () => {
           required={true}
         />
 
-        <Button label={'Register'} type={'submit'} loading={submitting} />
+        <Button style={{ width: '100%' }} label="Register" type="submit" loading={submitting} />
 
         <Link to={PATH.LOGIN} className="link">
           Already a member?

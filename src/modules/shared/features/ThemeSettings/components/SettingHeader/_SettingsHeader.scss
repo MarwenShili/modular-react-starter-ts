@@ -10,3 +10,25 @@
             font-weight: bold;
         }
     }
+
+    .dark-drawer {
+        .setting-header {
+            .actions {
+                .ant-btn {
+                    color: #ffffff;
+
+                    &:hover {
+                        background: rgba(255, 255, 255, 0.1);
+                    }
+
+                    .anticon {
+                        color: #ffffff;
+                    }
+                }
+            }
+
+            .title {
+                color: #ffffff;
+            }
+        }
+    }

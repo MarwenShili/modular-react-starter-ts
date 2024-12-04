@@ -14,13 +14,21 @@
         // margin-bottom: 20px;
     }
 
+    .profile-drawer-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+    }
+
     .drawer-content {
         display: flex;
         flex-direction: column;
         gap: 20px;
         justify-content: space-between;
-        height: calc(100vh - 130px);
+        // height: calc(100vh - 130px);
         overflow: hidden;
+        // height: 100vh;
 
     }
 

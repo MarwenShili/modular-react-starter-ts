@@ -95,3 +95,31 @@
 
 
 }
+
+#dark {
+  .login-module {
+    background-color: #1e232b;
+
+
+    .form-container {
+      .login-card-container {
+        background-color: #1e232b;
+        color: #ffffff;
+        box-shadow: rgba(0, 0, 0, 0.3) 0rem 1.25rem 1.6875rem 0rem;
+
+        .title {
+          color: #ffffff;
+        }
+
+        .link {
+          color: #ffffff;
+        }
+
+        // Keep the gradient button as is since it's a primary action
+        .btn-login {
+          // existing gradient styles will remain
+        }
+      }
+    }
+  }
+}

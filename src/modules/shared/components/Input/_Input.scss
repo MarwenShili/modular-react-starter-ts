@@ -65,34 +65,58 @@
     xl: 18px 0,
   );
 
-  @each $key, $value in $size {
-    .input-#{$key} {
-      padding: $value;
+@each $key, $value in $size {
+  .input-#{$key} {
+    padding: $value;
+  }
+}
+
+$color: (
+  light: $light,
+  primary: $primary,
+  info: $info,
+  success: $success,
+  danger: $danger,
+  warning: $warning,
+  dark: $dark,
+  secondary: $secondary,
+);
+
+@each $key, $value in $color {
+  .input-#{$key} {
+    color: $value;
+
+    @if $key =='secondary' or $key =='light' {
+      color: $dark;
+    }
+
+    @else {
+      color: $value;
     }
   }
 
-  $color: (
-    light: $light,
-    primary: $primary,
-    info: $info,
-    success: $success,
-    danger: $danger,
-    warning: $warning,
-    dark: $dark,
-    secondary: $secondary,
-  );
+  .input-container-#{$key} {
+    border: 1px solid $value;
+  }
+}
+}
 
-  @each $key, $value in $color {
-    .input-#{$key} {
-      color: $value;
-      @if $key == 'secondary' or $key == 'light' {
-        color: $dark;
-      } @else {
-        color: $value;
+#dark {
+  .input-form {
+    .label {
+      color: #ffffff;
+    }
+
+    .input-container {
+      .input {
+        color: #ffffff;
+
+        &::placeholder {
+          color: rgba(255, 255, 255, 0.7);
+        }
       }
     }
-    .input-container-#{$key} {
-      border: 1px solid $value;
-    }
+
+    // Keep error message color as is since it's using $danger variable
   }
 }

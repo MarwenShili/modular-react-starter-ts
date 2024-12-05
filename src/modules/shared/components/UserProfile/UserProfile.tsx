@@ -59,8 +59,8 @@ const UserProfile: React.FC<DrawerExampleProps> = ({ id, open, handleClose }) =>
                 />
               </div>
               <div className="user-data">
-                <div className="profile-name">John Doe</div>
-                <div className="profile-email">john.doe@example.com</div>
+                <div className="profile-name">Marwen Shili</div>
+                <div className="profile-email">codingwithshili@gmail.com</div>
               </div>
               <Divider dashed />
 

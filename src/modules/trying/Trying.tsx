@@ -4,6 +4,7 @@ import { Collapse } from 'antd'
 import { CaretRightOutlined } from '@ant-design/icons'
 
 import Form from './components/Form/Form'
+import Table from './components/Table/Table'
 
 const { Panel } = Collapse
 
@@ -37,6 +38,7 @@ const Trying = () => {
         >
           <Panel header={'Drag & Drop'} key="1"></Panel>
         </Collapse>
+        <Table />
       </div>
     </div>
   )

@@ -11,6 +11,22 @@ const dummyData: any = [
     scores: 100,
     country: 'USA',
   },
+  {
+    id: Math.random(),
+    fullname: 'John Doe',
+    email: 'john.doe@example.com',
+    phone: '+380971234567',
+    scores: 100,
+    country: 'USA',
+  },
+  {
+    id: Math.random(),
+    fullname: 'John Doe',
+    email: 'john.doe@example.com',
+    phone: '+380971234567',
+    scores: 100,
+    country: 'USA',
+  },
 ]
 
 function Table() {

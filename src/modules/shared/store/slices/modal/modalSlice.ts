@@ -18,11 +18,15 @@ const initialState: ModalsState = {
       open: false,
     },
     {
-      id: 'add-new-book',
+      id: 'drawer-example',
       open: false,
     },
     {
-      id: 'edit-book',
+      id: 'theme-settings',
+      open: false,
+    },
+    {
+      id: 'user-profile',
       open: false,
     },
   ],
@@ -35,7 +39,6 @@ const modalsSlice = createSlice({
     openModal: (state, action: PayloadAction<{ id: string; data?: any }>) => {
       const { id, data } = action.payload
       const index = state.modals.findIndex((modal) => modal.id === id)
-
       if (index !== -1) {
         state.modals[index].open = true
         state.modals[index].data = data

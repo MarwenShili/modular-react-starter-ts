@@ -1,4 +1,5 @@
 import { HTMLAttributes, ReactNode } from 'react'
+import { useAppSelector } from '@src/modules/shared/store'
 
 interface IButtonProps extends HTMLAttributes<HTMLButtonElement> {
   icon?: string
@@ -11,6 +12,7 @@ interface IButtonProps extends HTMLAttributes<HTMLButtonElement> {
   loading?: boolean
   type?: 'button' | 'submit' | 'reset'
   children?: ReactNode
+  style?: React.CSSProperties
 }
 
 const Button: React.FC<IButtonProps> = ({
@@ -23,10 +25,14 @@ const Button: React.FC<IButtonProps> = ({
   disabled,
   children,
   loading,
+  style,
   ...props
 }) => {
+  const { presetsConfig } = useAppSelector((state) => state.theme)
+
   return (
     <button
+      style={{ backgroundColor: presetsConfig.selectedPreset, ...style }}
       className={[
         'btn',
         `btn-${size}`,

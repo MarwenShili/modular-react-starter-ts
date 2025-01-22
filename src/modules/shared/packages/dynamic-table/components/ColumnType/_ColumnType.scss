@@ -1,0 +1,35 @@
+.dynamic_table_column_type_input_range {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.dynamic_table_column_type_date {
+  display: flex;
+  flex-direction: column;
+}
+
+.dynamic_table_column_type_date_range {
+  width: 100%;
+  display: flex;
+  gap: 12px;
+
+  .dynamic_table_column_type_date_range_item {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.ant_select_filter {
+  width: 100%;
+}
+
+.boolean-type {
+  display: flex;
+  gap: 12px;
+  border: 1px solid #ccc;
+  padding: 7px;
+  border-radius: 7px;
+
+}

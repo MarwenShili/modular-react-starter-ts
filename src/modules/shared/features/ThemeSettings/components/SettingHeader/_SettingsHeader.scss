@@ -1,0 +1,34 @@
+    .setting-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 25px;
+
+        .title {
+            font-size: 1.125rem;
+            font-weight: bold;
+        }
+    }
+
+    .dark-drawer {
+        .setting-header {
+            .actions {
+                .ant-btn {
+                    color: #ffffff;
+
+                    &:hover {
+                        background: rgba(255, 255, 255, 0.1);
+                    }
+
+                    .anticon {
+                        color: #ffffff;
+                    }
+                }
+            }
+
+            .title {
+                color: #ffffff;
+            }
+        }
+    }

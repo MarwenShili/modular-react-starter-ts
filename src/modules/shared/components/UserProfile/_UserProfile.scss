@@ -1,0 +1,106 @@
+.profile-drawer {
+    .ant-drawer-body {
+        padding: 18px 16px;
+    }
+
+    .ant-drawer-header {
+        display: none;
+    }
+
+    .drawer-close {
+        display: flex;
+        justify-content: flex-start;
+        cursor: pointer;
+        // margin-bottom: 20px;
+    }
+
+    .profile-drawer-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+    }
+
+    .drawer-content {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        justify-content: space-between;
+        // height: calc(100vh - 130px);
+        overflow: hidden;
+        // height: 100vh;
+
+    }
+
+    .profile-section {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+
+        .profile-avatar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 95px;
+            height: 95px;
+            border-radius: 50%;
+            background-color: #f5f5f5;
+            border: 1px solid #e5e5e5;
+            padding: 3px;
+
+            .navbar-avatar {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        .user-data {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0px;
+
+            .profile-name {
+                font-size: 1rem;
+                font-weight: 600;
+            }
+
+            .profile-email {
+                font-size: 0.775rem;
+                color: #aaaeb0;
+            }
+        }
+
+        .navigation-section {
+            width: 100%;
+            height: 350px;
+            overflow-y: auto;
+        }
+
+
+    }
+
+    .logout-section {
+        width: 100%;
+
+        .btn {
+            width: 100% !important;
+        }
+    }
+
+
+}
+
+.dark-drawer {
+    background-color: #1e232b !important;
+    color: #ffffff;
+
+    .theme {
+        background-color: #1e232b !important;
+    }
+}

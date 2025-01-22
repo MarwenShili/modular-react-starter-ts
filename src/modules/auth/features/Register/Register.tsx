@@ -8,17 +8,14 @@ import { getChangedValues } from '@src/modules/shared/utils/getChangedValuesForm
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { PATH } from '../../routes/paths'
+import NavPage from '../../components/NavPage/NavPage'
 
 const initialValues = {
   firstName: '',
   lastName: '',
-  username: '',
   email: '',
   password: '',
   verify_password: '',
-  phone: null,
-  age: null,
-  birthDate: null,
 }
 
 const Register = () => {
@@ -32,7 +29,6 @@ const Register = () => {
     validationSchema: Yup.object().shape({
       firstName: Yup.string().required('FirstName is required'),
       lastName: Yup.string().required('LastName is required'),
-      username: Yup.string().required('Username is required'),
       email: Yup.string()
         .email('Invalid email address')
         .matches(
@@ -70,9 +66,9 @@ const Register = () => {
 
   return (
     <div className="register-module">
+      <NavPage />
       <form className="register-card-container" onSubmit={formik.handleSubmit}>
         <h1 className="title">Register</h1>
-
         <Input
           name="firstName"
           formik={formik}
@@ -88,15 +84,6 @@ const Register = () => {
           variant="secondary"
           placeholder="Enter your lastname"
           label="Lastname"
-          required={true}
-        />
-
-        <Input
-          name="username"
-          formik={formik}
-          variant="secondary"
-          placeholder="Enter your username"
-          label="Username"
           required={true}
         />
 
@@ -130,7 +117,7 @@ const Register = () => {
           required={true}
         />
 
-        <Button label={'Register'} type={'submit'} loading={submitting} />
+        <Button style={{ width: '100%' }} label="Register" type="submit" loading={submitting} />
 
         <Link to={PATH.LOGIN} className="link">
           Already a member?

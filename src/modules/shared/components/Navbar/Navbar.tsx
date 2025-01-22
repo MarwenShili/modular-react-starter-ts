@@ -5,38 +5,29 @@ import { Avatar, Button, Dropdown, MenuProps, Space } from 'antd'
 import enFlagIcon from '../../assets/icons/navbar/en-flag.png'
 import frFlagIcon from '../../assets/icons/navbar/fr-flag.png'
 import arFlagIcon from '../../assets/icons/navbar/ar-flag.png'
-import { ReactComponent as ProfileIcon } from '../../assets/icons/sidebar/profile.svg'
-import { ReactComponent as SettingsIcon } from '../../assets/icons/navbar/settings.svg'
-import { ReactComponent as LogoutIcon } from '../../assets/icons/navbar/logout.svg'
-import { useAppDispatch } from '../../store'
-import { logout } from '@src/modules/auth/data/authThunk'
+import { RootState, useAppDispatch, useAppSelector } from '../../store'
 import { useTranslation } from 'react-i18next'
 import { useState } from 'react'
-
+import { setCollapseSidebar } from '../../store/slices/theme/themeSlice'
+import settingsIcon from '../../assets/icons/navbar/settings.svg'
+import { openModal } from '../../store/slices/modal/modalSlice'
+import { UserOutlined } from '@ant-design/icons'
 interface INavbarProps {
   setShowSidebar: React.Dispatch<React.SetStateAction<boolean>>
-  setCollapseSidebar: React.Dispatch<React.SetStateAction<boolean>>
-  collapseSidebar: boolean
 }
 
-const Navbar: React.FC<INavbarProps> = ({
-  setShowSidebar,
-  setCollapseSidebar,
-  collapseSidebar,
-}) => {
+const Navbar: React.FC<INavbarProps> = ({ setShowSidebar }) => {
   const { pathname } = useLocation()
   const dispatch = useAppDispatch()
   const { t, i18n } = useTranslation('translation')
+
+  const { collapseSidebar, presetsConfig } = useAppSelector((state: RootState) => state.theme)
 
   const [lang, setLang] = useState(i18n?.language?.toString())
 
   const onChangeLanguage = (language: string) => {
     i18n.changeLanguage(language)
     setLang(language)
-  }
-
-  const handleLogout = () => {
-    dispatch(logout())
   }
 
   const languagesItems: MenuProps['items'] = [
@@ -69,38 +60,12 @@ const Navbar: React.FC<INavbarProps> = ({
     },
   ]
 
-  const accountInfoItems: MenuProps['items'] = [
-    {
-      key: '1',
-      label: (
-        <Space>
-          <Avatar size={32} className="navbar-avatar">
-            MS
-          </Avatar>
-          <div className="navbar-account-info">
-            <p className="sidebar-accountinfo-item">Marwen Shili</p>
-            <p>Role: Admin</p>
-          </div>
-        </Space>
-      ),
-      disabled: true,
-    },
-    {
-      key: '2',
-      label: <p>Profile</p>,
-      icon: <ProfileIcon style={{ stroke: 'black', width: '18px', height: '18px' }} />,
-    },
-    {
-      key: '3',
-      label: <p>Settings</p>,
-      icon: <SettingsIcon style={{ stroke: 'black', width: '18px', height: '18px' }} />,
-    },
-    {
-      key: '4',
-      label: <p onClick={handleLogout}>logout</p>,
-      icon: <LogoutIcon style={{ stroke: 'black', width: '18px', height: '18px' }} />,
-    },
-  ]
+  const handleClickSettings = () => {
+    dispatch(dispatch(openModal({ id: 'theme-settings' })))
+  }
+  const handleClickUserProfile = () => {
+    dispatch(openModal({ id: 'user-profile' }))
+  }
 
   return (
     <div className="navbar">
@@ -110,7 +75,7 @@ const Navbar: React.FC<INavbarProps> = ({
           alt="menu"
           className="navbar-left-menu-icon"
           onClick={() => {
-            setCollapseSidebar(false)
+            dispatch(setCollapseSidebar(false))
             setShowSidebar(true)
           }}
         />
@@ -118,7 +83,7 @@ const Navbar: React.FC<INavbarProps> = ({
           src={menuIcon}
           alt="menu"
           className="navbar-left-menu-icon-collapse"
-          onClick={() => setCollapseSidebar(!collapseSidebar)}
+          onClick={() => dispatch(setCollapseSidebar(!collapseSidebar))}
         />
         <p className="navbar-left-title">{pathname.split('/')[1]}</p>
       </div>
@@ -141,19 +106,18 @@ const Navbar: React.FC<INavbarProps> = ({
             </Button>
           </Dropdown>
 
-          <Dropdown
-            menu={{ items: accountInfoItems }}
-            trigger={['click']}
-            placement="bottomRight"
-            arrow
-            className="navbar-dropdown-cursor"
-          >
-            <Space>
-              <Avatar size={32} className="navbar-avatar">
-                A
-              </Avatar>
-            </Space>
-          </Dropdown>
+          <div className="setting-icon" onClick={handleClickSettings}>
+            <img src={settingsIcon} alt="settings" />
+          </div>
+
+          <div className="navbar-profile-cursor" onClick={handleClickUserProfile}>
+            <Avatar
+              style={{ backgroundColor: presetsConfig.selectedPreset }}
+              icon={<UserOutlined />}
+              size={28}
+              className="navbar-avatar"
+            ></Avatar>
+          </div>
         </Space>
 
         <ThemeButton />

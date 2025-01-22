@@ -1,0 +1,19 @@
+.header_colomns_switches {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 6px;
+
+  .header_colomns_switches_item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .header_colomns_switches_item_label {
+    white-space: nowrap;
+    font-size: 14px;
+    cursor: pointer;
+    user-select: none;
+  }
+}

@@ -1,0 +1,17 @@
+.footer_container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  padding: 22px 32px;
+  border-top: 1px solid #eee;
+
+  .ant-pagination {
+    .ant-pagination-item,
+    .ant-pagination-jump-next {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

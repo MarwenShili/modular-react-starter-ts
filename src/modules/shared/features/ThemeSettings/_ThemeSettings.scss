@@ -1,0 +1,19 @@
+.setting-drawer {
+    .ant-drawer-body {
+        padding: 18px 16px;
+    }
+
+    .ant-drawer-header {
+        display: none;
+    }
+
+}
+
+.dark-drawer {
+    background-color: #1e232b !important;
+    color: #ffffff;
+
+    .theme {
+        background-color: #1e232b !important;
+    }
+}

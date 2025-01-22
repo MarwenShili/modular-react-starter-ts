@@ -1,0 +1,52 @@
+  .container-image {
+      width: calc(100% - 24px);
+      height: 400px;
+      position: absolute;
+      top: 24px;
+      // height: 100%;
+      border-radius: 20px;
+      background: linear-gradient(310deg, rgb(33, 82, 255), rgb(33, 212, 253));
+      z-index: 0;
+      overflow: hidden;
+
+      .bg-image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 20px;
+      }
+
+      .setting-icon {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          cursor: pointer;
+
+          img {
+              width: 26px;
+              height: 26px;
+              animation: rotate 4s linear infinite;
+              filter: brightness(0) invert(1);
+          }
+      }
+
+
+      @media only screen and (max-width: 675px) {
+          width: 100%;
+          border-radius: 0;
+          top: 0;
+          height: 100%;
+          overflow: hidden;
+          display: none;
+      }
+  }
+
+  @keyframes rotate {
+      from {
+          transform: rotate(0deg);
+      }
+
+      to {
+          transform: rotate(360deg);
+      }
+  }

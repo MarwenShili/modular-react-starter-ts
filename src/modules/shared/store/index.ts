@@ -7,7 +7,7 @@ import rootReducer from './rootReducer'
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['modal'], // Persist only the modal slice
+  whitelist: ['theme'],
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
